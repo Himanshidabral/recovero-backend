@@ -1,0 +1,14 @@
+{
+  "name": "ERIC",
+  "version": "1.0.0",
+  "description": "Base url https://api.ericapp.io/api/v1/app",
+  "sampleUrl": false,
+  "defaultVersion": "0.0.0",
+  "apidoc": "0.3.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2023-01-05T12:40:44.783Z",
+    "url": "https://apidocjs.com",
+    "version": "0.29.0"
+  }
+}

@@ -1,0 +1,913 @@
+[
+  {
+    "type": "post",
+    "url": "/contact/add",
+    "title": "ADD CONTACTS",
+    "version": "1.0.0",
+    "name": "Add_Contacts",
+    "group": "Contact",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "contacts",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"contacts\":[{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"mobile_no\":9919121910,\"country_code\":\"+91\"},{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"mobile_no\":9913192910,\"country_code\":\"+91\"}]}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"You can add  1 more contacts\",\"data\":{}}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"Contacts with name HimanshI are duplicate\",\"data\":{}}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"Contacts are reached to its maximum limit i.e.5\",\"data\":{}}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"VALIDATION_FAILED\",\"message\":\"Validation Failed!\",\"data\":{\"error\":[\"\\\"contacts[0].mobile_no\\\" is required\"]}}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Contacts has been successfully added!\",\"data\":{\"contacts\":[{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"mobile_no\":331912910,\"country_code\":\"+91\",\"_id\":\"639f3258deefe894845419c2\",\"__v\":0,\"created_at\":\"2022-12-18T15:31:36.698Z\",\"updated_at\":\"2022-12-18T15:31:36.698Z\",\"id\":\"639f3258deefe894845419c2\"}]}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/contact.controller.ts",
+    "groupTitle": "Contact"
+  },
+  {
+    "type": "delete",
+    "url": "/api/v1/app/contact/delete",
+    "title": "CONTACT DELETE",
+    "version": "1.0.0",
+    "name": "Contact_Delete",
+    "group": "Contact",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Contact has been deleted successfully!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/contact.controller.ts",
+    "groupTitle": "Contact"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/app/contact/detail/63a19e170a4d9b92b0d27595",
+    "title": "CONTACT DETAIL",
+    "version": "1.0.0",
+    "name": "Contact_Detail",
+    "group": "Contact",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Contact detail fetched successfully!\",\"data\":{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"mobile_no\":331912710,\"country_code\":\"+91\",\"_id\":\"63a19e170a4d9b92b0d27595\",\"__v\":0,\"created_at\":\"2022-12-20T11:35:51.118Z\",\"updated_at\":\"2022-12-20T11:35:51.118Z\",\"id\":\"63a19e170a4d9b92b0d27595\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/contact.controller.ts",
+    "groupTitle": "Contact"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/app/contact/edit/63a19e170a4d9b92b0d27595",
+    "title": "CONTACT EDIT",
+    "version": "1.0.0",
+    "name": "Contact_Detail",
+    "group": "Contact",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "mobile_no",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country_code",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "first_name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "last_name",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"mobile_no\":\"331912010\",\"country_code\":\"+91\",\"first_name\":\"my name\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Contact updated successfully!\",\"data\":{\"first_name\":\"my name\",\"last_name\":\"Dabrals\",\"user_id\":\"63b3de90d5970f4054da930c\",\"mobile_no\":331912010,\"country_code\":\"+91\",\"_id\":\"63b3f6c7a0344fc11d5c53da\",\"__v\":0,\"created_at\":\"2023-01-03T09:35:03.987Z\",\"updated_at\":\"2023-01-03T09:35:03.987Z\",\"id\":\"63b3f6c7a0344fc11d5c53da\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/contact.controller.ts",
+    "groupTitle": "Contact"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/app/contact/list",
+    "title": "CONTACT LIST",
+    "version": "1.0.0",
+    "name": "Contact_List",
+    "group": "Contact",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Contacts List fetched successfully!\",\"data\":{\"contact\":[{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"mobile_no\":9910121910,\"country_code\":\"+91\",\"_id\":\"639f1e2a67ed3389c4a923c9\",\"__v\":0,\"created_at\":\"2022-12-18T14:05:30.572Z\",\"updated_at\":\"2022-12-18T14:05:30.572Z\",\"id\":\"639f1e2a67ed3389c4a923c9\"},{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"mobile_no\":9911192910,\"country_code\":\"+91\",\"_id\":\"639f1e2a67ed3389c4a923ca\",\"__v\":0,\"created_at\":\"2022-12-18T14:05:30.572Z\",\"updated_at\":\"2022-12-18T14:05:30.572Z\",\"id\":\"639f1e2a67ed3389c4a923ca\"},{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"mobile_no\":9919121910,\"country_code\":\"+91\",\"_id\":\"639f1e4867ed3389c4a923d4\",\"__v\":0,\"created_at\":\"2022-12-18T14:06:00.019Z\",\"updated_at\":\"2022-12-18T14:06:00.019Z\",\"id\":\"639f1e4867ed3389c4a923d4\"},{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"mobile_no\":9913192910,\"country_code\":\"+91\",\"_id\":\"639f1e4867ed3389c4a923d5\",\"__v\":0,\"created_at\":\"2022-12-18T14:06:00.019Z\",\"updated_at\":\"2022-12-18T14:06:00.019Z\",\"id\":\"639f1e4867ed3389c4a923d5\"}]}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/contact.controller.ts",
+    "groupTitle": "Contact"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/app/event/add",
+    "title": "ADD EVENT",
+    "version": "1.0.0",
+    "name": "Add_Event",
+    "group": "Event",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "event_type",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "repeat_days",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "start_time",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "emergency_contacts",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"event_type\":\"6391b310ac1ff48e207ba166\",\"name\":\"jogging and runsnings\",\"repeat_days\":[0],\"start_time\":\"07:00 AM\",\"emergency_contacts\":[\"6391b310ac1ff48e207ba166\"]}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Event Created Successfully\",\"data\":{\"event_type\":\"6391b310ac1ff48e207ba166\",\"name\":\"jogdging and runsnings\",\"start_time\":\"07:00 AM\",\"emergency_contacts\":[\"6391b310ac1ff48e207ba166\"],\"repeat_days\":[\"SUN\"],\"status\":true,\"_id\":\"63983501ee4fa39150ad9ae7\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"created_at\":\"2022-12-13T08:17:05.718Z\",\"updated_at\":\"2022-12-13T08:17:05.718Z\",\"__v\":0,\"id\":\"63983501ee4fa39150ad9ae7\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"VALIDATION_FAILED\",\"message\":\"Validation Failed!\",\"data\":{\"error\":[\"\\\"repeat_days[0]\\\" must be one of [0,1,2,3,4,5,6]\"]}}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"Event already exist with this name!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/event.controller.ts",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/app/event/add-event-type",
+    "title": "ADD EVENT Type",
+    "version": "1.0.0",
+    "name": "Add_Event_Type",
+    "group": "Event",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"name\":\"jog\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Event Created Successfully\",\"data\":{\"name\":\"jogs\",\"added_by\":\"User\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"status\":true,\"_id\":\"6398453508359046e445524d\",\"created_at\":\"2022-12-13T09:26:13.892Z\",\"updated_at\":\"2022-12-13T09:26:13.892Z\",\"__v\":0,\"id\":\"6398453508359046e445524d\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"Event Type already exist with this name!\",\"data\":{}}  *",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/event.controller.ts",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/app/event/edit/63b2745f317d8e6eccf4e5f4",
+    "title": "EDIT EVENT",
+    "version": "1.0.0",
+    "name": "Edit_Event",
+    "group": "Event",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "event_type",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "repeat_days",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "start_time",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "emergency_contacts",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "status",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"event_type\":\"6391b310ac1ff48e207ba166\",\"name\":\"jogging and runsnings\",\"repeat_days\":[0],\"start_time\":\"07:00 AM\",\"emergency_contacts\":[\"6391b310ac1ff48e207ba166\"]}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Event Updated SuccessFully!\",\"data\":{\"event_type\":\"6399afbe4ee67f460c33225c\",\"name\":\"mosnschs mssdkedlds\",\"start_time\":\"07:00 AM\",\"emergency_contacts\":[\"63a05d15fc93dab25c5fea0f\",\"63a05e043853f8a24cd16861\"],\"repeat_days\":[0],\"status\":true,\"_id\":\"63b2745f317d8e6eccf4e5f4\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"created_at\":\"2023-01-02T06:06:23.191Z\",\"updated_at\":\"2023-01-02T06:06:23.191Z\",\"__v\":0,\"id\":\"63b2745f317d8e6eccf4e5f4\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/event.controller.ts",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "patch",
+    "url": "/api/v1/app/event/change-status/6399c172445b1a82d0152e9a",
+    "title": "EVENT CHANGE STATUS",
+    "version": "1.0.0",
+    "name": "Event_Change_Status",
+    "group": "Event",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Event turns Off successfully\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/event.controller.ts",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "delete",
+    "url": "/api/v1/app/event/delete/63a1a1a1b0dca127d4d08416",
+    "title": "EVENT DELETE",
+    "version": "1.0.0",
+    "name": "Event_Delete",
+    "group": "Event",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Event has been deleted successfully!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/event.controller.ts",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/app/event/detail/63a1a1a1b0dca127d4d08416",
+    "title": "EVENT DETAIL",
+    "version": "1.0.0",
+    "name": "Event_Detail",
+    "group": "Event",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Event fetched successfully!\",\"data\":{\"event_type\":\"6399afbe4ee67f460c33225c\",\"name\":\"mosnschs mssdedlds\",\"start_time\":\"07:00 AM\",\"emergency_contacts\":[\"63a05d15fc93dab25c5fea0f\",\"63a05e043853f8a24cd16861\"],\"repeat_days\":[0],\"status\":true,\"_id\":\"63a1a1a1b0dca127d4d08416\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"created_at\":\"2022-12-20T11:50:57.191Z\",\"updated_at\":\"2022-12-20T11:50:57.191Z\",\"__v\":0,\"id\":\"63a1a1a1b0dca127d4d08416\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/event.controller.ts",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/app/event/list?page=2",
+    "title": "EVENT LIST",
+    "version": "1.0.0",
+    "name": "Event_List",
+    "group": "Event",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Event Fetched Successfully\",\"data\":{\"event\":[{\"event_type\":{\"name\":\"breakfast\",\"added_by\":\"User\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"status\":true,\"_id\":\"6399afbe4ee67f460c33225c\",\"created_at\":\"2022-12-14T11:13:02.700Z\",\"updated_at\":\"2022-12-14T11:13:02.700Z\",\"__v\":0,\"id\":\"6399afbe4ee67f460c33225c\"},\"name\":\"jon meal\",\"start_time\":\"07:00 AM\",\"emergency_contacts\":[\"6391b310ac1ff48e207ba166\"],\"repeat_days\":[0],\"status\":true,\"_id\":\"6399c172445b1a82d0152e9a\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"created_at\":\"2022-12-14T12:28:34.530Z\",\"updated_at\":\"2022-12-14T12:28:34.530Z\",\"__v\":0,\"id\":\"6399c172445b1a82d0152e9a\"},{\"event_type\":{\"name\":\"breakfast\",\"added_by\":\"User\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"status\":true,\"_id\":\"6399afbe4ee67f460c33225c\",\"created_at\":\"2022-12-14T11:13:02.700Z\",\"updated_at\":\"2022-12-14T11:13:02.700Z\",\"__v\":0,\"id\":\"6399afbe4ee67f460c33225c\"},\"name\":\"monch meal\",\"start_time\":\"07:00 AM\",\"emergency_contacts\":[\"6391b310ac1ff48e207ba166\"],\"repeat_days\":[0],\"status\":true,\"_id\":\"6399c178445b1a82d0152e9e\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"created_at\":\"2022-12-14T12:28:40.881Z\",\"updated_at\":\"2022-12-14T12:28:40.881Z\",\"__v\":0,\"id\":\"6399c178445b1a82d0152e9e\"}],\"count\":12,\"currentPage\":\"2\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/event.controller.ts",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/app/event/event-type-list",
+    "title": "EVENT Type LIST",
+    "version": "1.0.0",
+    "name": "Event_Type_List",
+    "group": "Event",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Event Fetched Successfully\",\"data\":{\"eventType\":[{\"name\":\"breakfast\",\"added_by\":\"User\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"status\":true,\"_id\":\"6399afbe4ee67f460c33225c\",\"created_at\":\"2022-12-14T11:13:02.700Z\",\"updated_at\":\"2022-12-14T11:13:02.700Z\",\"__v\":0,\"id\":\"6399afbe4ee67f460c33225c\"},{\"name\":\"lunch\",\"added_by\":\"User\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"status\":true,\"_id\":\"6399c8d4b02f51524ca566a8\",\"created_at\":\"2022-12-14T13:00:04.025Z\",\"updated_at\":\"2022-12-14T13:00:04.025Z\",\"__v\":0,\"id\":\"6399c8d4b02f51524ca566a8\"},{\"name\":\"dinner\",\"added_by\":\"User\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"status\":true,\"_id\":\"6399c8d8b02f51524ca566ac\",\"created_at\":\"2022-12-14T13:00:08.859Z\",\"updated_at\":\"2022-12-14T13:00:08.859Z\",\"__v\":0,\"id\":\"6399c8d8b02f51524ca566ac\"},{\"name\":\"cerals\",\"added_by\":\"User\",\"user_id\":\"6391b310ac1ff48e207ba166\",\"status\":true,\"_id\":\"6399c8deb02f51524ca566b0\",\"created_at\":\"2022-12-14T13:00:14.510Z\",\"updated_at\":\"2022-12-14T13:00:14.510Z\",\"__v\":0,\"id\":\"6399c8deb02f51524ca566b0\"},{\"name\":\"breakfast\",\"added_by\":\"ADMIN\",\"user_id\":\"6399ca6a1a4f69b07aaebf72\",\"status\":true,\"_id\":\"6399ca581a4f69b07aaebf70\",\"created_at\":\"2022-12-14T11:13:02.700Z\",\"updated_at\":\"2022-12-14T11:13:02.700Z\",\"__v\":0,\"id\":\"6399ca581a4f69b07aaebf70\"}]}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/event.controller.ts",
+    "groupTitle": "Event"
+  },
+  {
+    "type": "notification",
+    "url": "NOTIFICATION",
+    "title": "EVENT HIT",
+    "version": "1.0.0",
+    "name": "Event_Hit_Notification",
+    "group": "Notification",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{type:\"eventHit\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/schedulers/event.scheduler.ts",
+    "groupTitle": "Notification"
+  },
+  {
+    "type": "notification",
+    "url": "NOTIFICATION",
+    "title": "TRIGGER",
+    "version": "1.0.0",
+    "name": "Trigger",
+    "group": "Notification",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{type:\"trigger\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/schedulers/triggers.scheduler.ts",
+    "groupTitle": "Notification"
+  },
+  {
+    "type": "post",
+    "url": "/user/add-device-info",
+    "title": "ADD DEVICE INFO",
+    "version": "1.0.0",
+    "name": "Add_Device_Info",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device_uid",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device_token",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "device_type",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"device_uid\":\"134\",\"device_token\":\"dkf;lsdkcm;dskfesodkcx;lokfdsc\",\"device_type\":\"IOS\"//ANDROID OR IOS}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Device token updated successfully!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/user.controller.ts",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/user/check-mobile-exist",
+    "title": "CHECK MOBILE NUMBER ALREADY EXIST",
+    "version": "1.0.0",
+    "name": "Check_Number_Already_Exist",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country_code",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mobile_no",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"country_code\":\"+91\",\"mobile_no\":99999999999}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"You have already registered with this number , Please choose new!\",\"data\":{}}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"Mobile Number Already Exist!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"You can proceed successfully!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/user.controller.ts",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/user/complete-profile",
+    "title": "Complete Profile",
+    "version": "1.0.0",
+    "name": "Complete_Profile",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "first_name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "last_name",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "profile_pic",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"first_name\":Himanshi,\"last_name\":Dabral,\"email\":himanshidabral@gmail.com,\"profile_pic\":image.jpg}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"VALIDATION_FAILED\",\"message\":\"Validation Failed!\",\"data\":{\"error\":[\"\\\"first_name\\\" is required\"]}}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"Email already exist!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Successfully completed!\",\"data\":{\"user\":{\"otp\":{\"otp\":null,\"is_expired\":false,\"expiration_time\":null,\"is_verified\":true},\"currentLocation\":{\"type\":\"Point\",\"coordinates\":[]},\"profile_pic\":\"https://eric-buket.s3.ap-south-1.amazonaws.com/profile_pic/image_1670497246377.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASIGTWCYMBGTHAGM2%2F20221213%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20221213T064417Z&X-Amz-Expires=900&X-Amz-Signature=9a969b5c27a95ba7f76d4ec8f5f6b30c121843d32f59c21f66c080d963bf1865&X-Amz-SignedHeaders=host\",\"first_name\":\"Himanshi\",\"last_name\":\"Dabral\",\"country_code\":\"+91\",\"mobile_no\":\"7777777777\",\"email\":\"himanshidabral@gmail.com\",\"is_profile_completed\":true,\"is_account_active\":true,\"is_profile_verified\":true,\"deleted\":false,\"device_token\":null,\"device_type\":null,\"device_uid\":null,\"unsubscribe_emails\":false,\"_id\":\"6391b310ac1ff48e207ba166\",\"created_at\":\"2022-12-08T09:49:04.352Z\",\"updated_at\":\"2022-12-12T11:17:42.735Z\",\"__v\":0,\"contacts\":[{\"first_name\":\"Himanshi\",\"last_name\":\"Dabral\",\"mobile_no\":9910191910,\"country_code\":\"+91\"},{\"first_name\":\"Lakshit\",\"last_name\":\"Dabral\",\"mobile_no\":9910191910,\"country_code\":\"+91\"},{\"first_name\":\"Add\",\"last_name\":\"Dabral\",\"mobile_no\":9910191910,\"country_code\":\"+91\"},{\"first_name\":\"Himanshi\",\"last_name\":\"Dabrals\",\"mobile_no\":9910191910,\"country_code\":\"+91\"},{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"mobile_no\":9910191910,\"country_code\":\"+91\"}],\"contactsLength\":4,\"id\":\"6391b310ac1ff48e207ba166\"}}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/user.controller.ts",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/app/user/contact-support",
+    "title": "CONTACT SUPPORT",
+    "version": "1.0.0",
+    "name": "Contact_Support",
+    "group": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Message Sent!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/user.controller.ts",
+    "groupTitle": "User"
+  },
+  {
+    "type": "patch",
+    "url": "/user/update-number",
+    "title": "UPDATE MOBILE NUMBER",
+    "version": "1.0.0",
+    "name": "Update_Number",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country_code",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mobile_no",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"country_code\":\"+91\",\"mobile_no\":99999999999}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Mobile Number updated successfully!\",\"data\":{\"otp\":{\"otp\":\"9439\",\"is_expired\":false,\"expiration_time\":1671084824093,\"is_verified\":true},\"currentLocation\":{\"type\":\"Point\",\"coordinates\":[]},\"profile_pic\":\"profile_pic/image_1672302091472.png\",\"first_name\":\"Himanshi\",\"last_name\":null,\"country_code\":\"+91\",\"mobile_no\":\"9999999999\",\"email\":\"himanshidabral@gmail.com\",\"is_profile_completed\":true,\"is_account_active\":true,\"is_profile_verified\":true,\"deleted\":false,\"device_token\":null,\"device_type\":null,\"device_uid\":null,\"unsubscribe_emails\":false,\"_id\":\"6391b310ac1ff48e207ba166\",\"created_at\":\"2022-12-08T09:49:04.352Z\",\"updated_at\":\"2023-01-02T07:54:43.886Z\",\"__v\":0,\"contacts\":[{\"first_name\":\"Himanshi\",\"last_name\":\"Dabral\",\"mobile_no\":9910191910,\"country_code\":\"+91\"},{\"first_name\":\"Lakshit\",\"last_name\":\"Dabral\",\"mobile_no\":9910191910,\"country_code\":\"+91\"},{\"first_name\":\"Add\",\"last_name\":\"Dabral\",\"mobile_no\":9910191910,\"country_code\":\"+91\"},{\"first_name\":\"Himanshi\",\"last_name\":\"Dabrals\",\"mobile_no\":9910191910,\"country_code\":\"+91\"},{\"first_name\":\"HimanshI\",\"last_name\":\"Dabrals\",\"mobile_no\":9910191910,\"country_code\":\"+91\"}],\"contactsLength\":4,\"id\":\"6391b310ac1ff48e207ba166\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/user.controller.ts",
+    "groupTitle": "User"
+  },
+  {
+    "type": "delete",
+    "url": "/api/v1/app/user/delete",
+    "title": "USER DELETE",
+    "version": "1.0.0",
+    "name": "User_Delete",
+    "group": "User",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"User Deleted Successfully!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/user.controller.ts",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/app/auth/verify-otp",
+    "title": "OTP VERIFICATION",
+    "version": "1.0.0",
+    "name": "OTP_VERIFICATION",
+    "group": "User_Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "mobile_no",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "otp",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "country_code",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"country_code\":\"+91\",\"mobile_no\":99999999999,\"otp\":\"5374\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Logged in successfully\",\"data\":{\"user\":{\"otp\":{\"otp\":null,\"is_expired\":true,\"expiration_time\":null,\"is_verified\":true},\"currentLocation\":{\"type\":\"Point\",\"coordinates\":[]},\"profile_pic\":null,\"first_name\":null,\"last_name\":null,\"country_code\":\"+91\",\"mobile_no\":\"99999999999\",\"email\":null,\"is_profile_completed\":false,\"is_account_active\":false,\"is_profile_verified\":true,\"deleted\":false,\"device_token\":null,\"device_type\":null,\"device_uid\":null,\"unsubscribe_emails\":false,\"_id\":\"639082402cab4f7f64d01df8\",\"contacts\":[],\"created_at\":\"2022-12-07T12:08:32.648Z\",\"updated_at\":\"2022-12-08T05:33:43.456Z\",\"__v\":0},\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzkwODI0MDJjYWI0ZjdmNjRkMDFkZjgiLCJjcmVhdGVkX2F0IjoiMjAyMi0xMi0wN1QxMjowODozMi42NDhaIiwiaWF0IjoxNjcwNDc3NjIzLCJleHAiOjE2NzMwNjk2MjN9.Jl-ApEQ2tqrjSVbS1ioJP6i1OuiivwydJtBXdrtDykA\"}}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"Invalid Otp!\",\"data\":{}}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"User not found!\",\"data\":{}}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"BAD_REQUEST\",\"message\":\"Provided Otp has been expired!\",\"data\":{}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/auth.controller.ts",
+    "groupTitle": "User_Auth"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/app/auth/login",
+    "title": "USER LOGIN",
+    "version": "1.0.0",
+    "name": "USER_Login",
+    "group": "User_Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country_code",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "mobile_no",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request",
+          "content": "{\"country_code\":\"+91\",\"mobile_no\":99999999999}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\"status\":200,\"statusText\":\"SUCCESS\",\"message\":\"Otp Send to the your registered mobile number!\",\"data\":{\"otp\":{\"otp\":\"0755\",\"is_expired\":false,\"expiration_time\":1670415392110,\"is_verified\":false},\"currentLocation\":{\"type\":\"Point\",\"coordinates\":[]},\"profile_pic\":null,\"first_name\":null,\"last_name\":null,\"country_code\":\"+91\",\"mobile_no\":\"99999999999\",\"email\":null,\"is_profile_completed\":false,\"is_account_active\":false,\"deleted\":false,\"device_token\":null,\"device_type\":null,\"device_uid\":null,\"unsubscribe_emails\":false,\"_id\":\"639082402cab4f7f64d01df8\",\"contacts\":[],\"created_at\":\"2022-12-07T12:08:32.648Z\",\"updated_at\":\"2022-12-07T12:11:32.116Z\",\"__v\":0}}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\"status\":400,\"statusText\":\"VALIDATION_FAILED\",\"message\":\"Validation Failed!\",\"data\":{\"error\":[\"Mobile number should be equal to greater than  8 digit.\"]}}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/controllers/app/v1/auth.controller.ts",
+    "groupTitle": "User_Auth"
+  }
+]
